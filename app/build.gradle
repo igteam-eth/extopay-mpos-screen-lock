@@ -12,7 +12,7 @@ android {
         minSdk 24
         targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
 
     buildTypes {
@@ -26,8 +26,21 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    buildFeatures {
+        // Generates BuildConfig.VERSION_NAME / VERSION_CODE (off by default since AGP 8)
+        buildConfig true
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    // APK name: ExtoPay-Screen-Lock-MPOS-Release-V1.0.apk (Debug builds: ...-Debug-V1.0.apk)
+    // Uses versionName from defaultConfig above.
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "ExtoPay-Screen-Lock-MPOS-${variant.buildType.name.capitalize()}-V${variant.versionName}(b${variant.versionCode}).apk"
+        }
     }
 }
 

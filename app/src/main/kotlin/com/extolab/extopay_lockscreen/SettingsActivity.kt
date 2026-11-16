@@ -79,6 +79,10 @@ class SettingsActivity : Activity() {
         cardRemove = findViewById(R.id.cardRemove)
         tvRemoveNote = findViewById(R.id.tvRemoveNote)
 
+        // versionName / versionCode come from defaultConfig in app/build.gradle
+        findViewById<TextView>(R.id.tvVersion).text =
+            "${getString(R.string.app_name)} · Version ${BuildConfig.VERSION_NAME} (b${BuildConfig.VERSION_CODE})"
+
         rowSetup.setOnClickListener { openPin(PinActivity.Mode.SETUP) }
         rowChange.setOnClickListener { openPin(PinActivity.Mode.CHANGE) }
         rowAuth.setOnClickListener { testAuthentication() }
