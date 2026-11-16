@@ -1,0 +1,1 @@
+"# extopay-mpos-screen-lock" 
