@@ -28,7 +28,7 @@ How "current PIN" is checked: the SDK can set a PIN but not read or verify it, s
 set outside the app, the status shows "Set outside this app" and the current PIN is
 passed to the SDK without being checked locally.
 
-Files: `SettingsActivity.java`, `PinActivity.java`, `PinStore.java`,
+Files (Kotlin, in `app/src/main/kotlin/com/extolab/extopay_lockscreen/`): `SettingsActivity.kt`, `PinActivity.kt`, `PinStore.kt`, `DeviceAuth.kt`,
 `res/layout/activity_settings.xml`, `res/layout/activity_pin.xml`, `res/values/themes.xml`,
 `res/values/colors.xml`, `res/values*/dimens.xml` (smaller keypad on short screens),
 `res/drawable/*`.
@@ -64,28 +64,28 @@ Pattern grid:
    `DeviceException` or `SecurityException`, check this first.
 
 ## How to use it in your own app
-```java
-LockScreenManager lm = new LockScreenManager(context);
+```kotlin
+val lm = LockScreenManager(context)
 
 // Run on a background thread: ISystemDevice.open() is synchronous.
-lm.enableLock(LockScreenManager.LockType.PIN, "1234");
-lm.enableLock(LockScreenManager.LockType.PASSWORD, "abcd1234");
-lm.enableLock(LockScreenManager.LockType.PATTERN, "14789");
+lm.enableLock(LockScreenManager.LockType.PIN, "1234")
+lm.enableLock(LockScreenManager.LockType.PASSWORD, "abcd1234")
+lm.enableLock(LockScreenManager.LockType.PATTERN, "14789")
 
-lm.disableLock(LockScreenManager.LockType.PIN, "1234");   // remove the lock
+lm.disableLock(LockScreenManager.LockType.PIN, "1234")   // remove the lock
 
-lm.setLockScreenText("ExtoPay terminal #001");
-lm.setLockScreenNotification(LockScreenManager.NOTIFICATION_NONE);
+lm.setLockScreenText("ExtoPay terminal #001")
+lm.setLockScreenNotification(LockScreenManager.NOTIFICATION_NONE)
 ```
 
 Calling the SDK directly works like this:
-```java
-ISystemDevice dev = POSTerminalAdvance.getInstance().getSystemDevice();
-dev.open(context);
+```kotlin
+val dev = POSTerminalAdvance.getInstance().systemDevice
+dev.open(context)
 try {
-    dev.setPinLock(true, "1234");
+    dev.setPinLock(true, "1234")
 } finally {
-    dev.close();
+    dev.close()
 }
 ```
 
@@ -100,4 +100,4 @@ try {
   first: test whether this works.
 
 ## Files
-- `app/src/main/java/com/cloudpos/lockscreen/LockScreenManager.java` – SDK wrapper, input checks, open/close
+- `app/src/main/kotlin/com/extolab/extopay_lockscreen/LockScreenManager.kt` – SDK wrapper, input checks, open/close
