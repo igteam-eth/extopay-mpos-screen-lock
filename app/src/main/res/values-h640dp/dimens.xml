@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="key_size">72dp</dimen>
+    <dimen name="key_margin">10dp</dimen>
+    <dimen name="key_text">28sp</dimen>
+    <dimen name="pin_icon">64dp</dimen>
+</resources>

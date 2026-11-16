@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Exto brand: navy #142C4C + white -->
+    <color name="primary">#142C4C</color>
+    <color name="primary_dark">#0D1F37</color>
+    <color name="primary_light">#2B4B75</color>
+    <color name="primary_soft">#E7ECF3</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_primary_muted">#B8C4D6</color>
+    <color name="bg">#F3F5F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#142C4C</color>
+    <color name="text_secondary">#66758A</color>
+    <color name="divider">#E3E8EF</color>
+    <color name="danger">#D92D20</color>
+    <color name="danger_soft">#FDEDEC</color>
+    <color name="danger_border">#F6C9C5</color>
+    <color name="success">#12805C</color>
+    <color name="success_soft">#E5F4EE</color>
+    <color name="warning">#B54708</color>
+    <color name="warning_soft">#FEF2E4</color>
+    <color name="key_bg">#EEF1F5</color>
+    <color name="key_pressed">#D5DCE6</color>
+</resources>

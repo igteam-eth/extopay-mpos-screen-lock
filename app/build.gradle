@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.extolab.extopay_lockscreen'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.extolab.extopay_lockscreen"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // Put the WizarPOS CloudPOS SDK (cloudpossdkV1.8.3.13 .aar or .jar) into app/libs/.
+    // The SDK must be 1.8.3.13 or newer: setPinLock / setPasswordLock / setPatternLock
+    // are not in older versions.
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Small terminals (e.g. 480x800 screens) -->
+    <dimen name="key_size">60dp</dimen>
+    <dimen name="key_margin">6dp</dimen>
+    <dimen name="key_text">24sp</dimen>
+    <dimen name="pin_icon">48dp</dimen>
+</resources>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="28dp">
+
+        <!-- Exto header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_header"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="64dp">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="Exto"
+                android:scaleType="fitCenter"
+                android:src="@drawable/exto_logo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Security"
+                    android:textColor="@color/on_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screen lock and authentication"
+                    android:textColor="@color/on_primary_muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status card (overlaps the header) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_card"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/ivStatus"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_icon_circle"
+                android:contentDescription="@null"
+                android:padding="14dp"
+                android:src="@drawable/ic_lock_open"
+                android:tint="@color/primary" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screen lock"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="3dp"
+                    android:text="None"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvStatusDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- PIN -->
+        <TextView
+            style="@style/SectionHeader"
+            android:text="PIN" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_card"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rowSetup"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_pin" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/RowTitle"
+                        android:text="Set up PIN" />
+
+                    <TextView
+                        style="@style/RowSummary"
+                        android:text="Protect this terminal with a 4–12 digit PIN" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron"
+                    android:tint="@color/text_secondary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rowChange"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_edit" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/RowTitle"
+                        android:text="Change PIN" />
+
+                    <TextView
+                        style="@style/RowSummary"
+                        android:text="Enter your current PIN, then choose a new one" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron"
+                    android:tint="@color/text_secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Authenticate -->
+        <TextView
+            style="@style/SectionHeader"
+            android:text="Authenticate" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_card"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rowAuth"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_verified_user" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAuthTitle"
+                        style="@style/RowTitle"
+                        android:text="Verify screen lock" />
+
+                    <TextView
+                        android:id="@+id/tvAuthSummary"
+                        style="@style/RowSummary"
+                        android:text="Confirm it's you with the terminal's PIN, the same check used before a payment" />
+
+                    <TextView
+                        android:id="@+id/tvAuthResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="3dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivAuthChevron"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron"
+                    android:tint="@color/text_secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Remove screen lock -->
+        <TextView
+            android:id="@+id/headerRemove"
+            style="@style/SectionHeader"
+            android:text="Remove screen lock"
+            android:textColor="@color/danger" />
+
+        <LinearLayout
+            android:id="@+id/cardRemove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_card_danger"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rowRemove"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:background="@drawable/bg_icon_circle_danger"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_lock_open"
+                    android:tint="@color/danger" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/RowTitle"
+                        android:text="Remove screen lock"
+                        android:textColor="@color/danger"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRemoveSummary"
+                        style="@style/RowSummary"
+                        android:text="Turns off the PIN, password or pattern. You'll confirm the current lock first." />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvRemoveNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:text="After removing it, anyone can unlock this terminal, and payments that need a screen-lock check will stop working until a new lock is set."
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Lock screen -->
+        <TextView
+            style="@style/SectionHeader"
+            android:text="Lock screen" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_card"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rowMessage"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_message" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/RowTitle"
+                        android:text="Lock screen message" />
+
+                    <TextView
+                        android:id="@+id/tvMessage"
+                        style="@style/RowSummary"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Loading…" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="72dp"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/rowNotifications"
+                style="@style/Row">
+
+                <ImageView
+                    style="@style/RowIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_notifications" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/RowTitle"
+                        android:text="Notifications on lock screen" />
+
+                    <TextView
+                        android:id="@+id/tvNotifications"
+                        style="@style/RowSummary"
+                        android:text="Loading…" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

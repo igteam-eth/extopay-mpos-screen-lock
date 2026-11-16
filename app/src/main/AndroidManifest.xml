@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Required by ISystemDevice.setPinLock / setPasswordLock / setPatternLock -->
+    <uses-permission
+        android:name="android.permission.CREATE_USERS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Required by BiometricPrompt (Verify screen lock on Android 9+);
+         without it authenticate() throws SecurityException -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme">
+
+        <!-- Screen lock settings (launcher) -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- PIN pad: Set up / Re-enter / Change / Remove -->
+        <activity
+            android:name=".PinActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Pin"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+    </application>
+</manifest>
