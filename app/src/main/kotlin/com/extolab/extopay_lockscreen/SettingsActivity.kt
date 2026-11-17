@@ -81,7 +81,7 @@ class SettingsActivity : Activity() {
 
         // versionName / versionCode come from defaultConfig in app/build.gradle
         findViewById<TextView>(R.id.tvVersion).text =
-            "${getString(R.string.app_name)} · Version ${BuildConfig.VERSION_NAME} (b${BuildConfig.VERSION_CODE})"
+            "${getString(R.string.app_name)} · Version ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})"
 
         rowSetup.setOnClickListener { openPin(PinActivity.Mode.SETUP) }
         rowChange.setOnClickListener { openPin(PinActivity.Mode.CHANGE) }
@@ -290,10 +290,11 @@ class SettingsActivity : Activity() {
             val flag = runCatching { lockManager.getLockScreenNotification() }.getOrNull()
             handler.post {
                 if (isFinishing) return@post
-                if (text != null) lockScreenMessage = text
+                // A cleared message comes back as " " (see LockScreenManager.setLockScreenText).
+                if (text != null) lockScreenMessage = text.trim()
                 tvMessage.text = when {
                     text == null -> "Not available on this terminal"
-                    text.isEmpty() -> "None"
+                    text.isBlank() -> "None"
                     else -> text
                 }
                 if (flag != null) notificationFlag = flag

@@ -62,9 +62,26 @@ class LockScreenManager(context: Context) {
     // Lock-screen text and notification policy
     // ------------------------------------------------------------------
 
-    /** Shows [text] on the lock screen; an empty string clears it. */
+    /**
+     * Shows [text] on the lock screen; an empty string clears it.
+     *
+     * The SDK docs say "" clears the text, but the terminal firmware rejects "" with
+     * ARGUMENT_EXCEPTION (-7). In that case a single space is sent instead, which leaves
+     * the lock screen blank.
+     */
     @Throws(DeviceException::class)
-    fun setLockScreenText(text: String?) = withDevice { it.setTextOnLockScreen(text ?: "") }
+    fun setLockScreenText(text: String?) = withDevice { device ->
+        val value = text ?: ""
+        try {
+            device.setTextOnLockScreen(value)
+        } catch (e: DeviceException) {
+            if (value.isEmpty() && e.code == DeviceException.ARGUMENT_EXCEPTION) {
+                device.setTextOnLockScreen(" ")
+            } else {
+                throw e
+            }
+        }
+    }
 
     @Throws(DeviceException::class)
     fun getLockScreenText(): String? = withDevice { it.textOnLockScreen }
